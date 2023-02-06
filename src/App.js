@@ -15,7 +15,7 @@ function App() {
     try {
       // encode the full link into a shorter form using shortid
       const id = shortid.generate()
-      setShortUrl(`http://localhost:3000/${id}`)
+      setShortUrl(`http://mycreativelink/${id}`)
 
       // store the full link and its corresponding short link in the database
       const response = await fetch('http://localhost:3000/api/links', {
