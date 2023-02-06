@@ -177,3 +177,10 @@
     bottom: -55px;
     animation-delay: 5s;
 }
+
+@media(max-width: 700px){
+  .inputContainer h1 {
+    font-size: 2rem;
+  }
+
+}
