@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import shortid from 'shortid'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import './App.css';
+import redirectToWildberriesApp from './utils/redirectToWildberriesApp'
 
 function App() {
   const [url, setUrl] = useState('')
@@ -15,7 +16,7 @@ function App() {
     try {
       // encode the full link into a shorter form using shortid
       const id = shortid.generate()
-      setShortUrl(`https://links-client.vercel.app/wb/${id}`)
+      setShortUrl(`https://links-client.vercel.app/${id}`)
 
       // store the full link and its corresponding short link in the database
       const response = await fetch('http://localhost:3000/api/links', {
@@ -49,6 +50,7 @@ function App() {
       console.log(url);
       // // redirect the user to the correct page or mobile app
       // history.push(url)
+      redirectToWildberriesApp(url)
     } catch (err) {
       console.error(err)
     }
